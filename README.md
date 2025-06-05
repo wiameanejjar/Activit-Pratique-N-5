@@ -66,7 +66,15 @@ Les annotations comme `@NotEmpty` et `@Min` assurent que les données sont valid
 
 ![img](Screens/pageproduct.JPG)
 
+## 🗃️ Couche d'accès aux données - ProductRepository
 
+La deuxième étape consiste à créer l'interface `ProductRepository` qui étend `JpaRepository`. Cette interface permet d'accéder aux données des produits en base avec :
 
-##⚙️ Configuration du fichier 'application.properties'
+- **Toutes les opérations CRUD** de base fournies automatiquement par Spring Data JPA  
+- **Une méthode de recherche personnalisée** (`findByNameContains`) pour filtrer les produits par nom  
+- **Un système de pagination intégré** via l'objet `Pageable`  
+
+![img](Screens/productRepo.JPG)
+
+## ⚙️ Configuration du fichier 'application.properties'
 ![img](Screens/properties.JPG)
