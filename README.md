@@ -13,7 +13,7 @@ L'objectif de cette activité est de créer une application web JEE complète po
 ### 🔒 Sécurité & Authentification
 - Authentification stateless (JWT/LocalStorage)
 - Rôles utilisateurs : `USER` (lecture) et `ADMIN` (CRUD complet)
-- Protection CSRF désactivée (*à implémenter en production
+- Protection CSRF désactivée (*à implémenter en production*)
   
 ## ⚠️ Note sur la protection CSRF
 
@@ -39,6 +39,9 @@ Dans cette application (mode développement), la protection CSRF est désactivé
   - `404` Page introuvable
   - `405` Méthode non supportée
 
+
+
 ## 📦 Architecture de projet 
 
-![img](docs/images/screenshot.png)
+![img](Screens/archit1.JPG)
+![img](Screens/archit2.JPG)
