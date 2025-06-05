@@ -17,15 +17,8 @@ L'objectif de cette activité est de créer une application web JEE complète po
 ### 🔒 Sécurité & Authentification
 - Authentification stateless (JWT/LocalStorage)
 - Rôles utilisateurs : `USER` (lecture) et `ADMIN` (CRUD complet)
-- Protection CSRF désactivée (*à implémenter en production*)
+- Protection CSRF.
   
-## ⚠️ Note sur la protection CSRF
-
-**Pourquoi c'est désactivé ?**  
-Dans cette application (mode développement), la protection CSRF est désactivée car :
-- L'authentification utilise le **LocalStorage** (stateless) plutôt que des cookies
-- Simplifie les tests pendant le développement
-
 
 ### 🛠️ Gestion des Produits (CRUD)
 | Fonctionnalité       | Description                                  |
@@ -75,6 +68,28 @@ La deuxième étape consiste à créer l'interface `ProductRepository` qui éten
 - **Un système de pagination intégré** via l'objet `Pageable`  
 
 ![img](Screens/productRepo.JPG)
+
+## 🔒 Configuration de la Sécurité (SecurityConfig.java)
+
+Cette étape configure la sécurité de l'application avec Spring Security. Nous avons :
+
+1. **Authentification en mémoire** avec 3 utilisateurs pré-définis (dont un admin)  
+2. **Hachage des mots de passe** via BCrypt (algorithme sécurisé)  
+3. **Protection CSRF activée** par défaut contre les attaques  
+4. **Gestion des accès** :
+   - Pages publiques (`/public/**`, CSS...) accessibles sans login
+   - Toutes autres routes nécessitent une authentification
+   - Page d'erreur custom pour les accès refusés (`/notAuthorized`)
+
+>  **Bonnes pratiques** :  
+> - Les mots de passe sont toujours hachés (jamais en clair)  
+> - En production, remplacer `InMemoryUserDetailsManager` par un UserDetailsService personnalisé avec accès à la BDD  
+![img](Screens/secur1.JPG)
+![img](Screens/ssecur2.JPG)
+![img](Screens/secur3.JPG)
+
+
+
 
 ## ⚙️ Configuration du fichier 'application.properties'
 ![img](Screens/properties.JPG)
