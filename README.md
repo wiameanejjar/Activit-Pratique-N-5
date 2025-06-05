@@ -42,6 +42,10 @@ L'objectif de cette activité est de créer une application web JEE complète po
 ![img](Screens/archit1.JPG)
 ![img](Screens/archit2.JPG)
 
+###  Modèles basés sur Thymeleaf layout et Bootstrap: 
+![img](Screens/archit2.JPG)
+
+
  ---
 ## 📄 Explication détaillée 
   
