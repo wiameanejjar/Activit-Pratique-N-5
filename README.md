@@ -88,7 +88,16 @@ Cette étape configure la sécurité de l'application avec Spring Security. Nous
 ![img](Screens/ssecur2.JPG)
 ![img](Screens/secur3.JPG)
 
+## Contrôleur de gestion des produits
 
+Dans ce contrôleur, nous avons implémenté la gestion complète des produits avec une sécurité basée sur les rôles. Les utilisateurs peuvent consulter une liste paginée et filtrée des produits, tandis que les administrateurs peuvent ajouter, modifier ou supprimer un produit. Pour l’ajout, on utilise des formulaires avec validation via `@Valid`, et La suppression d’un produit se fait uniquement via une requête `POST` à `/admin/delete`, en récupérant l’identifiant du produit à l’aide de `@RequestParam`, ce qui évite toute suppression accidentelle par requête `GET`. Pour la modification, l’administrateur peut charger un produit existant dans un formulaire grâce à l’identifiant fourni dans l’URL via `@PathVariable`, puis l’enregistrer avec `/admin/update/{id}` après vérification de cohérence entre l'ID fourni et celui de l’objet.
+
+La sécurité est gérée par les annotations `@PreAuthorize`, qui restreignent l'accès à certaines routes en fonction des rôles ainsi qu'une gestion des erreurs personnalisée est intégrée pour améliorer l’expérience utilisateur.
+
+![img](Screens/controll1.JPG)
+![img](Screens/controll2.JPG)
+![img](Screens/controll3.JPG)
+![img](Screens/controll4.JPG)
 
 
 ## ⚙️ Configuration du fichier 'application.properties'
