@@ -39,20 +39,6 @@ Dans cette application (mode développement), la protection CSRF est désactivé
   - `404` Page introuvable
   - `405` Méthode non supportée
 
-### 📦 Architecture Technique
-```plaintext
-.
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/example/
-│   │   │       ├── config/      # Configuration Spring
-│   │   │       ├── controller/  # Contrôleurs MVC
-│   │   │       ├── entity/      # Entités JPA
-│   │   │       ├── repository/  # Spring Data JPA
-│   │   │       └── service/     # Logique métier
-│   │   └── resources/
-│   │       ├── static/          # CSS/JS
-│   │       ├── templates/       # Vues Thymeleaf
-│   │       └── application.yml  # Configuration
-└── pom.xml                      # Dépendances
+## 📦 Architecture de projet 
+
+![img](docs/images/screenshot.png)
