@@ -99,6 +99,13 @@ La sécurité est gérée par les annotations `@PreAuthorize`, qui restreignent 
 ![img](Screens/controll3.JPG)
 ![img](Screens/controll4.JPG)
 
+## Initialisation des produits au démarrage de l'application
+
+Dans cette classe principale, nous avons configuré l’initialisation automatique de la base de données avec un ensemble de produits dès le lancement de l’application. Grâce à la méthode `CommandLineRunner`, une série d’objets `Product` sont créés et enregistrés dans le dépôt `ProductRepository`. Cela permet de disposer immédiatement de données de test couvrant plusieurs catégories (hardware, composants, accessoires, etc.) pour tester l’application sans devoir saisir manuellement les produits. La sécurité Spring est désactivée via `exclude = {SecurityAutoConfiguration.class}` pour simplifier le développement initial.
+![img](Screens/app1.JPG)
+![img](Screens/app2.JPG)
+![img](Screens/app3.JPG)
+
 
 ## ⚙️ Configuration du fichier 'application.properties'
 ![img](Screens/properties.JPG)
