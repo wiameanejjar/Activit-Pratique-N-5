@@ -16,8 +16,6 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-
-
 public class Product {
     @Id
     @GeneratedValue

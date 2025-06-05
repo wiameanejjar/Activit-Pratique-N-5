@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout1">
+<head>
+  <meta charset="UTF-8">
+  <title>Not Authorized</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.5/css/bootstrap.min.css">
+  <style>
+    .error-card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+    .error-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="p-3" layout:fragment="content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 text-center">
+        <div class="error-card p-5 bg-danger text-white">
+          <i class="bi bi-shield-lock error-icon"></i>
+          <h2 class="mb-4">Access Denied</h2>
+          <p class="fs-5">You don't have permission to view this page.</p>
+          <a th:href="@{/}" class="btn btn-light mt-3 px-4">
+            <i class="bi bi-arrow-left me-2"></i>Return to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" layout:decorate="layout1">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ced4da;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .table {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .action-btn {
+            min-width: 110px;
+        }
+
+        .btn-outline-info {
+            border-color: #17a2b8;
+            color: #17a2b8;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .pagination-container {
+            padding-top: 1rem;
+        }
+
+        .pagination .page-link {
+            border-radius: 0.4rem;
+            margin: 0 2px;
+        }
+
+        .pagination .active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #e9ecef;
+        }
+
+        .input-group .form-control {
+            border-right: 0;
+        }
+
+        .input-group .input-group-append .btn {
+            border-left: 0;
+            margin-left: 8px; /* Ajout de l'espace entre l'input et le bouton */
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+    </style>
+</head>
+<body>
+<div class="p-3" layout:fragment="content">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0" style="font-family: 'Comic Neue', cursive; font-weight: 500;">
+                Products List
+            </h3>
+            <div sec:authorize="hasRole('ADMIN')">
+                <a class="btn btn-primary" th:href="@{/admin/newProduct}">
+                    <i class="bi bi-plus-circle me-2"></i>New Product
+                </a>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <form th:action="@{/user/index}" method="get" class="form-inline">
+                    <div class="input-group">
+                        <input type="text"
+                               name="keyword"
+                               th:value="${keyword}"
+                               class="form-control"
+                               placeholder="Search products...">
+                        <input type="hidden" name="size" th:value="${pageSize}">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="product-table">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                    <th></th>
+                    <th sec:authorize="hasRole('ADMIN')" class="actions-column">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${'$' + product.price}"></td>
+                    <td th:text="${product.quantity}"></td>
+                    <td></td>
+                    <td></td>
+                    <td sec:authorize="hasRole('ADMIN')" class="d-flex gap-2">
+                        <div sec:authorize="hasRole('ADMIN')">
+                            <a class="btn btn-outline-info action-btn" th:href="@{'/admin/edit/' + ${product.id}}">
+                                <i class="bi bi-pencil-square me-1"></i>Edit
+                            </a>
+                        </div>
+                        <form th:action="@{/admin/delete(id=${product.id})}" method="post">
+                            <button type="submit" class="btn btn-outline-danger action-btn"
+                                    onclick="return confirm('Are you sure you want to delete this product?')">
+                                <i class="bi bi-trash me-1"></i>Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${totalPages > 1}" class="row mt-4 pagination-container">
+            <div class="col">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                            <a class="page-link" th:href="@{/user/index(page=0, size=${pageSize}, keyword=${keyword})}">
+                                &laquo;&laquo;
+                            </a>
+                        </li>
+                        <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                            <a class="page-link" th:href="@{/user/index(page=${currentPage - 1}, size=${pageSize}, keyword=${keyword})}">
+                                &laquo;
+                            </a>
+                        </li>
+                        <li th:each="i : ${#numbers.sequence(
+                          T(java.lang.Math).max(0, currentPage - 2),
+                          T(java.lang.Math).min(currentPage + 2, totalPages - 1))}"
+                            class="page-item"
+                            th:classappend="${currentPage == i} ? 'active'">
+                            <a class="page-link"
+                               th:href="@{/user/index(page=${i}, size=${pageSize}, keyword=${keyword})}"
+                               th:text="${i + 1}">1</a>
+                        </li>
+                        <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                            <a class="page-link" th:href="@{/user/index(page=${currentPage + 1}, size=${pageSize}, keyword=${keyword})}">
+                                &raquo;
+                            </a>
+                        </li>
+                        <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                            <a class="page-link" th:href="@{/user/index(page=${totalPages - 1}, size=${pageSize}, keyword=${keyword})}">
+                                &raquo;&raquo;
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

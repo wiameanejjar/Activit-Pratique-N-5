@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome | Spring MVC App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.5/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div class="p-3" layout:fragment="content">
+    <div class="container py-5 my-4">
+        <div class="hero-text text-center text-md-start mx-auto">
+
+            <h1 class="display-5 fw-bold mb-3">Bienvenue dans notre système de gestion de produits</h1>
+            <p class="lead text-muted mb-4">
+                Gérez facilement et en toute sécurité tous vos produits grâce à notre application Spring Boot intégrant Spring Security, JPA et Thymeleaf.
+                Découvrez toutes les fonctionnalités offertes en consultant notre
+                <a href="#" class="text-decoration-underline">documentation</a>.
+            </p>
+
+        </div>
+    </div>
+</div>
+<script src="/webjars/bootstrap/5.3.5/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
