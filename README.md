@@ -117,7 +117,9 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 
 ## Résultats : Interfaces utilisateur
 
-### 1. Page d'authentification 
+### 1. Page d'authentification
+
+Les utilisateurs par défaut du système sont:  deux utilisateurs standards (Anejjar et user) et un compte administrateur (admin), avec le même mot de passe temporaire '1234'."
 
   - Page d'authentification : (ici l'user Anejjar qui s'est connécté mais c'est la même page d'authentification pour l'admin) 
  ![img](Screens/PAGELOGIN.JPG)
@@ -152,7 +154,7 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 
 ### 6. Pour la suppression
   J'ai supprimé le produit avec l'id = 1.
- - Alérte de confirmation de suppression :
+ - Alerte de confirmation de suppression :
    ![img](Screens/SUPP.JPG)
  - Aprés la suppression :
    ![img](Screens/APRESUPP.JPG)
@@ -165,7 +167,7 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 ![img](Screens/NOTAUTOHRIZED.JPG)
 
   ---
-## Conclusion et améliorations possibles
+## Conclusion et améliorations 
 
 ---
 
