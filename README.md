@@ -43,7 +43,7 @@ L'objectif de cette activité est de créer une application web JEE complète po
 ![img](Screens/archit2.JPG)
 
 ###  Modèles basés sur Thymeleaf layout et Bootstrap: 
-![img](Screens/archit2.JPG)
+![img](Screens/templates.JPG)
 
 
  ---
@@ -113,3 +113,50 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 
 ## ⚙️ Configuration du fichier 'application.properties'
 ![img](Screens/properties.JPG)
+
+
+## Résultats : Interfaces utilisateur
+
+### 1. Page d'authentification 
+
+  - Page d'authentification : (ici l'user Anejjar qui s'est connécté mais c'est la même page d'authentification pour l'admin) 
+ ![img](Screens/PAGELOGIN.JPG)
+
+### 2. Page d'acceuil :  
+
+  - J'ai ajouté une simple page d'acceuil juste pour présenter le système.  
+![img](Screens/homme.JPG)
+
+### 3. Liste des produits avec pagination 
+  - Pour l'user :
+![img](Screens/USERINTERFACE.JPG)
+![img](Screens/user2.JPG)
+
+  - Pour l'admin :
+![img](Screens/ADMINPAGE.JPG)
+![img](Screens/admin2.JPG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
