@@ -1,3 +1,7 @@
+## Nom et Prénom : Anejjar Wiame
+## Filière: MSDIA
+
+---
 # Rapport TP°5 : Gestion de Produits - Application Spring Boot
 
 ## 📌 Objectif
@@ -39,9 +43,13 @@ Dans cette application (mode développement), la protection CSRF est désactivé
   - `404` Page introuvable
   - `405` Méthode non supportée
 
-
-
+ ---
 ## 📦 Architecture de projet 
 
 ![img](Screens/archit1.JPG)
 ![img](Screens/archit2.JPG)
+
+ ---
+## 📄 Explication détaillée 
+  
+---
