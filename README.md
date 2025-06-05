@@ -53,3 +53,20 @@ Dans cette application (mode développement), la protection CSRF est désactivé
 ## 📄 Explication détaillée 
   
 ---
+## 🛒 Entité Produit (Product.java)
+
+La première étape consiste à modéliser notre produit en créant une classe Java annotée `@Entity`. Cette classe représente la structure de base d'un produit dans notre système avec :
+
+- **Un identifiant unique** (`id`) généré automatiquement par la base de données  
+- **Un nom** (`name`) avec validation : obligatoire (entre 3 et 50 caractères)  
+- **Un prix** (`price`) qui doit être positif ou nul  
+- **Une quantité** (`quantity`) toujours supérieure à 1  
+
+Les annotations comme `@NotEmpty` et `@Min` assurent que les données sont valides avant d'être enregistrées. 
+
+![img](Screens/pageproduct.JPG)
+
+
+
+##⚙️ Configuration du fichier 'application.properties'
+![img](Screens/properties.JPG)
