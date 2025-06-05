@@ -119,7 +119,9 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 
 ### 1. Page d'authentification
 
-Les utilisateurs par défaut du système sont:  deux utilisateurs standards (Anejjar et user) et un compte administrateur (admin), avec le même mot de passe temporaire '1234'."
+Les utilisateurs par défaut du système sont:  
+  - Deux utilisateurs standards (Anejjar et user) et un compte administrateur (admin).
+  - Avec le même mot de passe temporaire '1234'."
 
   - Page d'authentification : (ici l'user Anejjar qui s'est connécté mais c'est la même page d'authentification pour l'admin) 
  ![img](Screens/PAGELOGIN.JPG)
