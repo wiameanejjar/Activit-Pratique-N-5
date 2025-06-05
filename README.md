@@ -136,6 +136,49 @@ Dans cette classe principale, nous avons configuré l’initialisation automatiq
 ![img](Screens/ADMINPAGE.JPG)
 ![img](Screens/admin2.JPG)
 
+### 4. Page d'ajout
+  - Formulaire d'ajout :
+  ![img](Screens/AJOUTPAGE.JPG)
+  - En cas des champs vides :
+![img](Screens/VALIDATEFORM.JPG)
+  - Aprés l'ajout de produit :
+![img](Screens/APRESAJOUT.JPG)
+
+### 5. Page de modification
+  - Formulaire de modification : j'ai modifié le produit avec l'id = 2.
+![img](Screens/update.JPG)
+  - Aprés la modification : 
+![img](Screens/afterupdate.JPG)
+
+### 6. Pour la suppression
+  J'ai supprimé le produit avec l'id = 1.
+ - Alérte de confirmation de suppression :
+   ![img](Screens/SUPP.JPG)
+ - Aprés la suppression :
+   ![img](Screens/APRESUPP.JPG)
+
+### 7. Page de recherche
+![img](Screens/SEARCH.JPG)
+### 8. Pour la déconnexion 
+![img](Screens/logout.JPG)
+### 9. Cas d'un accées refusés 
+![img](Screens/NOTAUTOHRIZED.JPG)
+
+  ---
+## Conclusion et améliorations possibles
+
+---
+
+Ce projet Spring MVC met en place une application de gestion de produits sécurisée, avec séparation des rôles entre utilisateurs et administrateurs, ainsi qu’une interface conviviale pour afficher, ajouter, modifier et supprimer des produits. L’initialisation de la base avec des données réalistes permet une prise en main rapide et un bon aperçu des fonctionnalités.
+
+Pour améliorer davantage ce projet, on pourrait :  
+
+- Intégrer un système d’inscription des utilisateurs pour permettre la création de comptes.
+- Permettre la modification des rôles ou profils utilisateurs à partir de l’interface admin.
+- Conserver automatiquement le mot-clé de recherche et la page courante lors de la navigation ou des actions (suppression, édition), pour éviter de revenir à la première page ou perdre le filtre en cours.
+- Ajouter le support du téléchargement d’images pour les produits afin d’enrichir les fiches produit.
+
+
 
 
 
